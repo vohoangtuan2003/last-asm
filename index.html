@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vo Hoang Tuan Toy's Shop</title>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+  <h1>Vo Hoang Tuan Toy's Shop</h1>
+  <h1>This is a toy shop containing the childhood and dreams of many people.</h1>
+<div style="height: 200px;width: 100px;display: flex;flex-wrap: wrap;margin-left:300px">
+  <form action="/add" method="POST">
+    <label for="productId">ID:</label>
+    <input type="text" name="productId" id="productId" required><br>
+
+    <label for="name">Toy's Name:</label>
+    <input type="text" name="name" id="name" required><br>
+
+    <label for="price">Price:</label>
+    <input type="number" name="price" id="price" required><br>
+
+    <label for="image">Image:</label>
+    <input type="text" name="image" id="image" required><br>
+
+    <input type="submit" value="Add Product">
+  </form>
+</div>
+</body>
+</html>

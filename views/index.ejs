@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Vo Hoang Tuan</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- font css -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,800;1,400&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+ </head>
+ <body>
+    <!-- layout_border start -->
+    <h1 class="banner_taital">Vo Hoang Tuan's Toy Shop</h1>
+    <p class="banner_text">This is a toy shop containing the childhood and dreams of many people.</p>            
+<div style="height: 200px;width: 200px;display: flex;flex-wrap: wrap;margin-left:300px">
+  <form action="/add" method="POST">
+    <label for="productId">Toy's ID:</label>
+    <input type="text" name="productId" id="productId" required><br>
+
+    <label for="name">Name  :</label>
+    <input type="text" name="name" id="name" required><br>
+
+    <label for="price">Price:</label>
+    <input type="number" name="price" id="price" required><br>
+
+    <label for="image">Image:</label>
+    <input type="file" name="image" id="image" accept="image/*" required><br>
+
+    <input type="submit" value="Add Product">
+  </form>
+</div>
+  <h2>Our New Toy:</h2>
+  <ul>
+    <% products.forEach(function(product) { %>
+      <li>
+        <img src="/images/<%= product.image %>" alt="<%= product.name %>"><br>
+        <span><%= product.name %> - $<%= product.price %></span><br>
+        <form action="/delete" method="POST" style="display: inline;">
+          <input type="hidden" name="productId" value="<%= product._id %>">
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+    <% }); %>
+  </ul>
+  <div class="footer_section layout_padding">
+    <div class="container">
+       <div class="row">
+          <div class="col-lg-4 col-sm-6">
+             <h3 class="footer_text">Address</h3>
+             <div class="location_text">
+                <ul>
+                   <li>
+                      <a href="#">
+                      <span class="padding_left_10"><i class="fa fa-map-marker" aria-hidden="true"></i></span>It is a long established fact that a<br> reader will be distracted</a>
+                   </li>
+                   <li>
+                      <a href="#">
+                      <span class="padding_left_10"><i class="fa fa-phone" aria-hidden="true"></i></span>0388929395
+                      </a>
+                   </li>
+                   <li>
+                      <a href="#">
+                      <span class="padding_left_10"><i class="fa fa-envelope" aria-hidden="true"></i></span>tuanvhgcs210295@fpt.com.vn
+                      </a>
+                   </li>
+                </ul>
+             </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+             <div class="footer_main">
+                <h3 class="footer_text">Find Us</h3>
+                <div class="social_icon">
+                   <ul>
+                      <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                      <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                      <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                   </ul>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <!-- Javascript files-->
+ <script src="js/jquery.min.js"></script>
+ <script src="js/popper.min.js"></script>
+ <script src="js/bootstrap.bundle.min.js"></script>
+ <script src="js/jquery-3.0.0.min.js"></script>
+ <script src="js/plugin.js"></script>
+</body>
+</html>
