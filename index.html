@@ -1,28 +1,110 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Vo Hoang Tuan Toy's Shop</title>
-  <link rel="stylesheet" type="text/css" href="/styles.css">
-</head>
-<body>
-  <h1>Vo Hoang Tuan Toy's Shop</h1>
-  <h1>This is a toy shop containing the childhood and dreams of many people.</h1>
-<div style="height: 200px;width: 100px;display: flex;flex-wrap: wrap;margin-left:300px">
-  <form action="/add" method="POST">
-    <label for="productId">ID:</label>
-    <input type="text" name="productId" id="productId" required><br>
-
-    <label for="name">Toy's Name:</label>
-    <input type="text" name="name" id="name" required><br>
-
-    <label for="price">Price:</label>
-    <input type="number" name="price" id="price" required><br>
-
-    <label for="image">Image:</label>
-    <input type="text" name="image" id="image" required><br>
-
-    <input type="submit" value="Add Product">
-  </form>
+<div class="container-fluid">
+  <div class="layout_border">
+     <!-- banner section start --> 
+<!-- layout_border start -->
+<h1 class="banner_taital">Vo Hoang Tuan's Toy Shop</h1>
+<p class="banner_text">This is a toy shop containing the childhood and dreams of many people.</p>   
+     <!-- banner section end -->
+     <!-- about section start -->
+     <h1 style="text-align:center">Add New Toy</h1>
+     <div style="height: auto;width: auto;display: flex;flex-wrap: wrap;margin-left:600px">
+          <form action="/add"method="POST">
+                  <div class="mb-3 mt-3">
+                      <label>Toy ID</label>
+                      <input type="text" name="id" class="form-control"placeholder="Toy ID">       
+                  </div>
+                   <div class="mb-3">
+                      <label>Toy Name</label>
+                      <input type="text" name="name" class="form-control"placeholder="Name">       
+                  </div>
+                  <div class="mb-3 mt-3">
+                      <label>Toy Price</label>
+                      <input type="number" name="price" class="form-control"placeholder="Price">       
+                  </div>
+                   <div class="mb-3">
+                      <label>Toy Image</label>
+                       <input type="file" name="image" class="form-control"placeholder="image">      
+                  </div>
+                  
+                  <div>
+                      <button type="submit"class="btn btn-primary"name="addnew">Save</button>
+                      <a href="Admin.html"class="btn btn-success">Back</a>  
+                  </div>
+              </form>
+          </div>
+     <!-- about section end -->
+     <!-- Toy section start -->
+     <div class="vagetables_section layout_padding">
+        <div class="container">
+           <div class="row">
+              <div class="col-sm-12">
+                 <h1 class="vagetables_taital">Our New Toy</h1>
+                 <p class="vagetables_text">The most popular toy </p>
+              </div>
+           </div>
+           <div class="courses_section_2">
+              <div class="row">
+                 <% products.forEach(function(product) { %>
+                 <div class="col-md-4">
+                    <div class="hover01 column">
+                       <figure><img src="/images/<%= product.image %>" alt="<%= product.name %>"></figure>
+                    </div>
+                    <h3 class="harshal_text"><%= product.name %></h3>
+                    <h3 class="rate_text"><%= product.price %></h3>
+                    <form action="/delete" method="POST" style="display: inline;">
+                      <input type="hidden" name="productId" value="<%= product._id %>">
+                      <button type="submit">Delete</button>
+                    </form>
+                 </div>
+                 <% }); %>
+              </div>
+           </div>
+        </div>
+     </div>
+     <!--Toy section end -->
+     <!-- testimonial section start -->
+ 
+     <!-- testimonial section end -->
+     <!-- layout_border end -->
+  </div>
 </div>
-</body>
-</html>
+<!-- footer section start -->
+<div class="footer_section layout_padding">
+  <div class="container">
+     <div class="row">
+        <div class="col-lg-4 col-sm-6">
+           <h3 class="footer_text">Address</h3>
+           <div class="location_text">
+              <ul>
+                 <li>
+                    <a href="#">
+                    <span class="padding_left_10"><i class="fa fa-map-marker" aria-hidden="true"></i></span>It is a long established fact that a<br> reader will be distracted</a>
+                 </li>
+                 <li>
+                    <a href="#">
+                    <span class="padding_left_10"><i class="fa fa-phone" aria-hidden="true"></i></span>0388929395
+                    </a>
+                 </li>
+                 <li>
+                    <a href="#">
+                    <span class="padding_left_10"><i class="fa fa-envelope" aria-hidden="true"></i></span>tuanvhgcs210295@fpt.com.vn
+                    </a>
+                 </li>
+              </ul>
+           </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+           <div class="footer_main">
+              <h3 class="footer_text">Find Us</h3>
+              <div class="social_icon">
+                 <ul>
+                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                 </ul>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>
